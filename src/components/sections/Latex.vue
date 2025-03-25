@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import resultsTable from '@/assets/images/results-table.png' // 替换为你的图片路径
+import resultsTable from 'image_comparison/results-table.png' // 替换为你的图片路径
 
 export default defineComponent({
   data() {
