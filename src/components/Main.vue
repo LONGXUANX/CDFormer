@@ -21,13 +21,8 @@ export default {
   components: {
     Title,
     Abstract,
-    Markdown,
-    BibTeX,
     Carousel,
-    Echart,
-    Collapse,
     Table,
-    SeletionForComparison,
     Comment,
     Latex,
   }
@@ -38,12 +33,7 @@ export default {
   <Title/>
   <Carousel/>
   <Abstract/>
-  <Markdown/>
   <Latex/>
   <Table/>
-  <Collapse/>
-  <Echart/>
-  <SeletionForComparison/>
-  <BibTeX/>
   <Comment/>
 </template>
