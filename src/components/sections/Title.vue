@@ -4,7 +4,7 @@ import { ElIcon } from 'element-plus'
 import { Document, Files, MagicStick, Picture, DataAnalysis, Film } from '@element-plus/icons-vue'
 
 // logo地址，没有则置为""即可
-const logo = './logo_cat.png'
+const logo = './logo_cat.jpg'
 
 // 标题
 const title = 'CDFormer: Cross-Domain Few-Shot Object Detection Transformer Against Feature Confusion'
@@ -42,18 +42,20 @@ const addresses = [
 ]
 
 // 最新消息
-const news = "🔥 [2025-3-21] Our paper has been accepted in ICME 2025."
+const news = "🔥 [2025-3-21] Our paper has been accepted to ICME 2025."
 
 // 强调内容
 const emphases = [
-  "🎉 [ICME 2025] ",
+  "🎉 ICME 2025 ",
   "🥰 Our code is coming soon"
+  "🤔 +12.9%/11.0%/10.4% mAP in 1/5/10-shot settings with fine-tuning (vs CD-ViTO)"
+  "😣 +20.6%/19.0%/18.3% mAP in 1/5/10-shot for open-set detection (vs DE-ViT)"
 ]
 
 // 提供引导资料链接
 const buttons = [
   {
-    disabled: true,
+    disabled: false,
     name: "Paper",
     component: Document,
   },
@@ -69,7 +71,7 @@ const buttons = [
     component: Files,
   },
   {
-    disabled: false,
+    disabled: true,
     name: "Demo",
     // link: "https://junyaohu.github.io/academic-project-page-template-vue",
     component: MagicStick,
