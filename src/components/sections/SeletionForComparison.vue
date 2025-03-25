@@ -93,7 +93,7 @@ export default {
     <el-divider />
 
     <el-row justify="center">
-      <h1 class="section-title">Comparison</h1>
+      <h1 class="section-title">Visual comparison</h1>
     </el-row>
 
     <el-row justify="center">
