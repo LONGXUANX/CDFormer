@@ -25,6 +25,7 @@ export default {
     Table,
     Comment,
     Latex,
+    SeletionForComparison,
   }
 }
 </script>
@@ -34,6 +35,6 @@ export default {
   <Carousel/>
   <Abstract/>
   <Latex/>
-  <Table/>
+  <SeletionForComparison/>
   <Comment/>
 </template>
