@@ -9,7 +9,7 @@ export default defineComponent({
       imageAlt: '模型性能对比结果',
       // 新增文本内容
       title: 'Experimental results comparison',
-      caption: 'Fig.1 The mAP values of different approaches produced on the CD-FSOD benchmarks in case of 1-shot, 5-shot, and 10-shot. Here ``w/ FT'' and ``w/o FT'' denote the results produced with and without fine-tuning, respectively.'
+      caption: 'Fig.1 The mAP values of different approaches produced on the CD-FSOD benchmarks in case of 1-shot, 5-shot, and 10-shot. Here ``w/ FT'' and ``w/o FT'' denote the results produced with and without fine-tuning, respectively.',
     }
   }
 })
