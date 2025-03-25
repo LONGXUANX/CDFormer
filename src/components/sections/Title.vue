@@ -7,13 +7,13 @@ import { Document, Files, MagicStick, Picture, DataAnalysis, Film } from '@eleme
 const logo = './logo.png'
 
 // 标题
-const title = 'Academic Project Page Template'
+const title = 'CDFormer: Cross-Domain Few-Shot Object Detection Transformer Against Feature Confusion'
 
 // 标题颜色
 const title_color = '#000000'
 
 // 标题补充，没有则置为''即可
-const title_supp = ' (Vue based)'
+const title_supp = ' (ICME2025)'
 
 // 标题补充颜色
 const title_supp_color = '#42B883'
@@ -24,54 +24,20 @@ const btn_color = '#444444'
 // 作者清单（包含作者姓名、头像、主页、地址序号）
 const authors = [
   {
-    name: "Your Name",
+    name: "Boyuan Meng",
     icon: "./icon/junyaohu.jpg",
     homepage: "https://junyaohu.github.io/",
-    address_flag: "1,#"
-  },
-  {
-    name: "Anya Forger",
-    icon: "./icon/anya.jpg",
-    homepage: "https://www.bilibili.com/video/BV1jv4y1P7Bb",
-    address_flag: "2,#"
-  },
-  {
-    name: "BugCat Capoo",
-    icon: "./icon/capoo.webp",
-    homepage: "https://zh.moegirl.org.cn/%E7%8C%AB%E7%8C%AB%E8%99%AB%E5%92%96%E6%B3%A2",
-    address_flag: "1,*"
+    address_flag: "1"
   },
 ]
-
-// 地址清单（包含地址名称、头像、主页、地址序号）
-const addresses = [
-  {
-    address_flag: "1",
-    name: "Home University",
-    icon: "./icon/home.png",
-    homepage: "https://github.com/hmuniversity"
-  },
-  {
-    address_flag: "2",
-    name: "IKUN University",
-    icon: "./icon/ikun.avif",
-    homepage: "https://www.bilibili.com/video/BV178411Y7QB"
-  },
-]
-
-// 共一和通讯提示
-const con_and_corresponding_author = 
-  "#: Equal Contribution. *: Corresponding Author."
 
 // 最新消息
-const news = "🔥 [2024-12-15] This template project is still under development."
+const news = "🔥 [2025-3-21] Our paper has been accepted in ICME 2025."
 
 // 强调内容
 const emphases = [
-  "🎉 [ABCD 2024] Poster",
-  "🥰 欢迎关注“减论”微信公众号/B站/知乎/小红书",
-  "传递人工智能算法科普教育的减约理解",
-  "提升信息效率及认知维度"
+  "🎉 [ICME 2025] ",
+  "🥰 Our code is coming soon"
 ]
 
 // 提供引导资料链接
@@ -89,13 +55,13 @@ const buttons = [
   {
     disabled: false,
     name: "Code",
-    link: "https://github.com/JunyaoHu/academic-project-page-template-vue",
+    // link: "https://github.com/JunyaoHu/academic-project-page-template-vue",
     component: Files,
   },
   {
     disabled: false,
     name: "Demo",
-    link: "https://junyaohu.github.io/academic-project-page-template-vue",
+    // link: "https://junyaohu.github.io/academic-project-page-template-vue",
     component: MagicStick,
   },
   {
@@ -107,18 +73,6 @@ const buttons = [
     disabled: true,
     name: "Slide",
     component: DataAnalysis,
-  },
-  {
-    disabled: false,
-    name: "Video (减论)",
-    link: "https://www.bilibili.com/video/BV15XkgYiE73/",
-    component: Film,
-  },
-  {
-    disabled: false,
-    name: "Video (Tutorial)",
-    link: "https://www.bilibili.com/video/BV1oUrfYzEqZ",
-    component: Film,
   },
 ]
 
@@ -159,23 +113,6 @@ const buttons = [
           </span>
         </el-button>
       </a>
-    </el-row>
-
-    <!-- 地址名单 -->
-    <el-row justify="center">
-      <a :href=address.homepage v-for="address in addresses">
-        <el-button class="title-button" type="primary" text>
-          <el-avatar v-if="address.icon" :size="40" :src="address.icon" />
-          <span class="address">
-            <sup v-if="address.address_flag" class="address_sup">{{ address.address_flag }}</sup>{{ address.name }}
-          </span>
-        </el-button>
-      </a>
-    </el-row>
-
-    <!-- 共一和通讯提示内容 -->
-    <el-row justify="center" class="con-cor">
-        {{ con_and_corresponding_author }}
     </el-row>
 
     <!-- 强调内容 -->
