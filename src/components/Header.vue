@@ -1,36 +1,12 @@
 <script lang="ts" setup>
-
 import { ElIcon } from 'element-plus'
-import { HomeFilled, SuccessFilled } from '@element-plus/icons-vue'
-
-// 个人主页
-const home = {
-    name: "My Blog",
-    link: "https://junyaohu.github.io/",
-}
+import { SuccessFilled } from '@element-plus/icons-vue'  // 移除了 HomeFilled，因为不再需要
 
 // 项目主页
 const logo = {
     name: "Template",
     link: "#",
 }
-
-// 右侧更多菜单
-const more_paper = {
-    "ExtDM": {
-        name: "ExtDM - CVPR 2024",
-        link: "https://zzcheng.top/ExtDM/",
-    },
-    "MPOT": {
-        name: "MPOT - ICCV 2023",
-        link: "https://zzcheng.top/MPOT/",
-    },
-    "ControlNet": {
-        name: "ControlNet - ICCV 2023",
-        link: "https://github.com/lllyasviel/ControlNet",
-    }
-}
-
 </script>
 
 <template>
@@ -44,38 +20,16 @@ const more_paper = {
         mode="horizontal"
         :ellipsis="false"
     >
-        <!-- 个人主页 -->
-        <el-menu-item index="0" >
-            <el-icon :size="20"><HomeFilled /></el-icon>
-            <a :href=home.link>{{ home.name }} </a>
-        </el-menu-item>
-        
-        <!-- 项目主页 -->
+        <!-- 仅保留项目主页 -->
         <el-menu-item index="1">
             <el-icon :size="20"><SuccessFilled /></el-icon>
-            <a :href=logo.link>{{ logo.name }} </a>
+            <a :href="logo.link">{{ logo.name }}</a>
         </el-menu-item>
-
-        <!-- 更多栏目 -->
-        <el-sub-menu index="2">
-            <template #title>More</template>
-            <el-menu-item index="2-1">
-                <a :href=more_paper.ExtDM.link>{{ more_paper.ExtDM.name }}</a>
-            </el-menu-item>
-            <el-menu-item index="2-2">
-                <a :href=more_paper.MPOT.link>{{ more_paper.MPOT.name }}</a>
-            </el-menu-item>
-            <el-menu-item index="2-3">
-                <a :href=more_paper.ControlNet.link>{{ more_paper.ControlNet.name }}</a>
-            </el-menu-item>
-        </el-sub-menu>
-
     </el-menu>
     </el-affix>
 </template>
 
 <style>
-
 /* 导航背景 */
 .el-menu {
 	background: none;
@@ -97,16 +51,9 @@ const more_paper = {
 .el-header {
     --el-header-height: 50px;
 }
-
 </style>
 
 <style scoped>
-
-/* 水平导航左右分区 */
-.el-menu--horizontal > .el-menu-item:nth-child(2) {
-    margin-right: auto;
-}
-
 /* 水平导航高度 */
 .el-menu--horizontal {
     --el-menu-horizontal-height: 50px;
@@ -120,8 +67,7 @@ a:hover {
 
 /* 链接装饰，取消下划线和链接颜色 */
 a {
-	text-decoration: None;
+	text-decoration: none;
 	color: inherit;
 }
-
 </style>
