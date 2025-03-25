@@ -4,7 +4,7 @@ import { ElIcon } from 'element-plus'
 import { Document, Files, MagicStick, Picture, DataAnalysis, Film } from '@element-plus/icons-vue'
 
 // logo地址，没有则置为""即可
-const logo = './logo.png'
+const logo = './logo_cat.png'
 
 // 标题
 const title = 'CDFormer: Cross-Domain Few-Shot Object Detection Transformer Against Feature Confusion'
@@ -13,7 +13,7 @@ const title = 'CDFormer: Cross-Domain Few-Shot Object Detection Transformer Agai
 const title_color = '#000000'
 
 // 标题补充，没有则置为''即可
-const title_supp = ' (ICME2025)'
+const title_supp = ''
 
 // 标题补充颜色
 const title_supp_color = '#42B883'
@@ -25,9 +25,19 @@ const btn_color = '#444444'
 const authors = [
   {
     name: "Boyuan Meng",
-    icon: "./icon/junyaohu.jpg",
-    homepage: "https://junyaohu.github.io/",
+    icon: "./icon/touxiang.jpg",
+    homepage: "",
     address_flag: "1"
+  },
+]
+
+// 地址清单（包含地址名称、头像、主页、地址序号）
+const addresses = [
+  {
+    address_flag: "1",
+    name: "Zhejiang University",
+    icon: "./icon/zheda.png",
+    homepage: ""
   },
 ]
 
@@ -84,7 +94,7 @@ const buttons = [
     <!-- 最新消息提示 -->
     <el-row justify="center">
       <el-col :span="24">
-        <el-alert title="🔥 This template is still under development." type="success" />
+        <el-alert title="🔥 [2025-3-21] Our paper has been accepted in ICME 2025." type="success" />
       </el-col>
     </el-row>
 
@@ -110,6 +120,18 @@ const buttons = [
           <el-avatar v-if="author.icon" :size="40" :src="author.icon" />
           <span class="author">
             {{ author.name }}<sup v-if="author.address_flag" class="name_sup">{{ author.address_flag }}</sup>
+          </span>
+        </el-button>
+      </a>
+    </el-row>
+
+ <!-- 地址名单 -->
+    <el-row justify="center">
+      <a :href=address.homepage v-for="address in addresses">
+        <el-button class="title-button" type="primary" text>
+          <el-avatar v-if="address.icon" :size="40" :src="address.icon" />
+          <span class="address">
+            <sup v-if="address.address_flag" class="address_sup">{{ address.address_flag }}</sup>{{ address.name }}
           </span>
         </el-button>
       </a>
