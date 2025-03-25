@@ -1,46 +1,85 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import resultsTable from '/image_comparison/CDFormer.png' // 替换为你的图片路径
+import resultsTable from '/image_comparison/CDFormer.png' // 推荐使用@/assets路径
 
 export default defineComponent({
   data() {
     return {
       tableImage: resultsTable,
-      imageAlt: '实验对比结果表格（mAP值）' // 替换为你的图片描述
+      imageAlt: '模型性能对比结果',
+      // 新增文本内容
+      title: '实验结果对比',
+      caption: '图1: 不同方法在1-shot、5-shot和10-shot场景下的mAP值对比（我们的方法用灰色高亮显示）'
     }
   }
 })
 </script>
 
 <template>
-  <div class="table-container">
-    <img 
-      :src="tableImage" 
-      :alt="imageAlt"
-      class="responsive-table"
-    >
+  <div class="figure-container">
+    <!-- 标题 -->
+    <h2 class="figure-title">{{ title }}</h2>
+    
+    <!-- 图片 -->
+    <div class="image-wrapper">
+      <img 
+        :src="tableImage" 
+        :alt="imageAlt"
+        class="responsive-image"
+        loading="lazy"
+      >
+    </div>
+    
+    <!-- 图注 -->
+    <p class="figure-caption">{{ caption }}</p>
   </div>
 </template>
 
 <style scoped>
-.table-container {
-  margin: 0 auto;
-  max-width: 900px; /* 根据你的图片宽度调整 */
-  padding: 20px;
+.figure-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  text-align: center;
 }
 
-.responsive-table {
-  width: 100%;
+.figure-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.image-wrapper {
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  margin: 1rem 0;
+}
+
+.responsive-image {
+  max-width: 100%;
   height: auto;
   display: block;
-  border: 1px solid #eee;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 0 auto;
+  border: 1px solid #f0f0f0;
 }
 
-/* 移动端适配 */
+.figure-caption {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* 响应式调整 */
 @media (max-width: 768px) {
-  .table-container {
-    padding: 10px;
+  .figure-container {
+    margin: 1rem;
+  }
+  .figure-title {
+    font-size: 1.3rem;
   }
 }
 </style>
