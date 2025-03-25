@@ -4,7 +4,7 @@ import { SuccessFilled } from '@element-plus/icons-vue'  // 移除了 HomeFilled
 
 // 项目主页
 const logo = {
-    name: "Template",
+    name: "CDFormer",
     link: "#",
 }
 </script>
