@@ -11,9 +11,12 @@ export default {
       comparison2ImagePath: '',
       comparison1Loading: true,
       comparison2Loading: true,
+      comparison1Error: false, // 新增错误状态
+      comparison2Error: false, // 新增错误状态
       options1: ['deepfish', 'NEU-DET', 'UODD', 'DIOR', 'Clipart', 'Artaxor'],
       options2: ['deepfish', 'NEU-DET', 'UODD', 'DIOR', 'Clipart', 'Artaxor'],
-      supportedExtensions: ['.png', '.jpg', '.jpeg'] // 支持的图片格式
+      supportedExtensions: ['.png', '.jpg', '.jpeg'],
+      placeholderImage: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="150" viewBox="0 0 200 150"><rect width="100%" height="100%" fill="%23f5f5f5"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23999" font-family="Arial">No Image</text></svg>'
     }
   },
   beforeMount() {
@@ -22,17 +25,21 @@ export default {
   },
   methods: {
     async handleChange1(value) {
+      this.comparison1Error = false;
       await this.loadImage(value, 'folder1');
     },
     async handleChange2(value) {
+      this.comparison2Error = false;
       await this.loadImage(value, 'folder2');
     },
     async loadImage(value, folderType) {
       const loadingKey = `${folderType}Loading`.replace('folder', 'comparison');
       const pathKey = `${folderType}ImagePath`.replace('folder', 'comparison');
+      const errorKey = `${folderType}Error`.replace('folder', 'comparison');
       const folder = this[folderType];
       
       this[loadingKey] = true;
+      this[errorKey] = false;
       let foundPath = '';
       
       // 尝试所有支持的扩展名
@@ -58,10 +65,14 @@ export default {
         };
         img.onerror = () => {
           console.error(`Failed to load: ${foundPath}`);
+          this[errorKey] = true;
+          this[pathKey] = this.placeholderImage;
           this[loadingKey] = false;
         };
       } else {
         console.error(`No valid image found for ${value} in ${folder}`);
+        this[errorKey] = true;
+        this[pathKey] = this.placeholderImage;
         this[loadingKey] = false;
       }
     },
@@ -86,66 +97,93 @@ export default {
     </el-row>
 
     <el-row justify="center">
-      <el-col >
+      <el-col>
         <el-row justify="center" :gutter="20">
-
-          <el-col :xs="12" :sm="10" :md="8" :lg="6" :xl="6" >
-
+          <!-- 第一个图片区域 -->
+          <el-col :xs="12" :sm="10" :md="8" :lg="6" :xl="6">
             <div class="demo-image">
               <div class="block">
                 <el-skeleton
-                style="width: 100%"
-                :loading="comparison1Loading"
-                animated
-                :throttle="1000"
+                  style="width: 100%"
+                  :loading="comparison1Loading"
+                  animated
+                  :throttle="1000"
                 >
                   <template #template>
                     <el-skeleton-item variant="image" style="width: 100%; height: 100%" />
                   </template>
                   <template #default>
-                    <el-image :src="comparison1ImageRootPath" style="width: 100%; height: 100%" fit="scale-down"/>
+                    <div class="image-container">
+                      <el-image 
+                        :src="comparison1ImagePath || placeholderImage" 
+                        style="width: 100%; height: 100%" 
+                        fit="scale-down"
+                      >
+                        <template #error>
+                          <div class="image-error">
+                            <el-icon><warning /></el-icon>
+                            <span>Failed to load image</span>
+                          </div>
+                        </template>
+                      </el-image>
+                      <div v-if="comparison1Error" class="image-status error">Not Found</div>
+                    </div>
                   </template>
                 </el-skeleton>
-                <span class="demonstration">input: {{ comparison1ImageRootPath }}</span>
+                <span class="demonstration">input: {{ comparison1ImagePath || 'No data' }}</span>
               </div>
             </div>
 
             <el-row justify="center">
-                <el-select
-                  class="select"
-                  v-model="value1"
-                  placeholder="Select"
-                  size="large"
-                  @change="handleChange1"
-                >
-                  <el-option
-                    v-for="item in options"
-                    :key="item"
-                    :label="item"
-                    :value="item"/>
-                </el-select>
+              <el-select
+                class="select"
+                v-model="value1"
+                placeholder="Select Dataset 1"
+                size="large"
+                @change="handleChange1"
+              >
+                <el-option
+                  v-for="item in options1"
+                  :key="item"
+                  :label="item"
+                  :value="item"
+                />
+              </el-select>
             </el-row>
-
           </el-col>
 
-          <el-col :xs="12" :sm="10" :md="8" :lg="6" :xl="6" >
-            
+          <!-- 第二个图片区域 -->
+          <el-col :xs="12" :sm="10" :md="8" :lg="6" :xl="6">
             <div class="demo-image">
               <div class="block">
                 <el-skeleton
-                style="width: 100%"
-                :loading="comparison2Loading"
-                animated
-                :throttle="1000"
+                  style="width: 100%"
+                  :loading="comparison2Loading"
+                  animated
+                  :throttle="1000"
                 >
                   <template #template>
                     <el-skeleton-item variant="image" style="width: 100%; height: 100%" />
                   </template>
                   <template #default>
-                    <el-image :src="comparison2ImageRootPath" style="width: 100%; height: 100%" fit="scale-down"/>
+                    <div class="image-container">
+                      <el-image 
+                        :src="comparison2ImagePath || placeholderImage" 
+                        style="width: 100%; height: 100%" 
+                        fit="scale-down"
+                      >
+                        <template #error>
+                          <div class="image-error">
+                            <el-icon><warning /></el-icon>
+                            <span>Failed to load image</span>
+                          </div>
+                        </template>
+                      </el-image>
+                      <div v-if="comparison2Error" class="image-status error">Not Found</div>
+                    </div>
                   </template>
                 </el-skeleton>
-                <span class="demonstration">input: {{ comparison2ImageRootPath }}</span>
+                <span class="demonstration">input: {{ comparison2ImagePath || 'No data' }}</span>
               </div>
             </div>
 
@@ -153,34 +191,31 @@ export default {
               <el-select
                 class="select"
                 v-model="value2"
-                placeholder="Select"
+                placeholder="Select Dataset 2"
                 size="large"
                 @change="handleChange2"
               >
                 <el-option
-                  v-for="item in options"
+                  v-for="item in options2"
                   :key="item"
                   :label="item"
-                  :value="item"/>
+                  :value="item"
+                />
               </el-select>
             </el-row>
           </el-col>
-
         </el-row>
       </el-col>
     </el-row>
-
   </div>
 </template>
 
 <style scoped>
-
 .select {
   padding-top: 10px;
   width: 200px;
 }
 
-/* 路径文字居中 */
 .demo-image .block {
   padding: 20px 0 0 0;
   text-align: center;
@@ -189,13 +224,13 @@ export default {
   width: 100%;
   box-sizing: border-box;
   vertical-align: top;
+  position: relative;
 }
 
 .demo-image .block:last-child {
   border-right: none;
 }
 
-/* 路径文字颜色 */
 .demo-image .demonstration {
   padding-top: 10px;
   display: block;
@@ -203,4 +238,34 @@ export default {
   word-wrap: break-word;
 }
 
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
+}
+
+.image-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #f56c6c;
+}
+
+.image-status {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.image-status.error {
+  background-color: #fef0f0;
+  color: #f56c6c;
+  border: 1px solid #fde2e2;
+}
 </style>
