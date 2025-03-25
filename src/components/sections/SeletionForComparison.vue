@@ -4,8 +4,8 @@ export default {
     return {
       value1: '',
       value2: '',
-      folder1: 'dataset1',
-      folder2: 'dataset2',
+      folder1: 'CD-ViTO',
+      folder2: 'CDFormer(Ours)',
       baseImagePath: './image_comparison/',
       comparison1ImagePath: '',
       comparison2ImagePath: '',
