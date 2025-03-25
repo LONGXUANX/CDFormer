@@ -30,29 +30,10 @@ export default defineComponent({
         <VueLatex expression="1+1=2" />.
         And we can show an interline formula like this: 
         <VueLatex expression="
-            D(x) = \begin{cases}
-            \lim\limits_{x \to 0} \frac{a^x}{b+c}, & x<3 \\
-            \pi, & x=3 \\
-            \int_a^{3b}x_{ij}+e^2 \mathrm{d}x,& x>3 \\
-            \end{cases}
-          " display-mode />
-        </p>
-
-        <!-- 添加LaTeX表格 -->
-       <VueLatex expression="
-         
-        \begin{table}[h!t] % 使用 table* 以便跨越双栏
-        \vspace{-1em}
+          
+        \begin{table}
         \centering
         \caption{The mAP values of different approaches produced on the CD-FSOD benchmarks in case of 1-shot, 5-shot, and 10-shot. Here ``w/ FT'' and ``w/o FT'' denote the results produced with and without fine-tuning, respectively.}
-        % \scriptsize % 调整字体大小
-        %\small
-        \scriptsize
-        % \renewcommand{\arraystretch}{0.9} % 调整行距,之前0.75
-        \setlength{\tabcolsep}{0.45pt} % 调整列距，默认值通常是6pt
-        % \setlength{\aboverulesep}{10pt} % 规则上方的间隔
-    
-        \resizebox{0.48\textwidth}{!}{  % 将表格宽度调整为80%的页面宽度
         \begin{tabular}{@{}lcccccccccc@{}}
         % \begin{tabular}{l|c|c|c|c|c|c|c|c}
             \toprule
@@ -112,16 +93,13 @@ export default defineComponent({
             \rowcolor{gray!30}  % 设置此行背景为灰色
             {CDFormer w/FT (ours)} & ViT-L/14 & \textcolor{red}{68.7} & \textcolor{red}{59.0} & \textcolor{red}{32.5} & \textcolor{red}{35.5} & \textcolor{blue}{18.1} & \textcolor{red}{26.4} & \textcolor{red}{40.0} \\
             \bottomrule
-        \end{tabular}
-        }
-    \label{all}
-    \end{table}
-
-         
+            \end{tabular}
+            }
+        \label{all}
+        \end{table}
+          
           " display-mode />
         </p>
-
-        
       </el-col>
     </el-row>
   </div>
