@@ -96,12 +96,10 @@ const buttons = [
     <!-- Latest News Notification -->
 	<el-row justify="center">
 	  <el-col :span="24">
-	    <el-alert title="🔥 [2025-3-21] Our paper has been accepted to ICME 2025." type="success" />
-	    <el-alert title="Our Key Contributions:
-	(1) While CD-ViTO demonstrates significant performance degradation in open-set detection on the CD-FSOD benchmark, our network exhibits notable domain robustness.
-	(2) Our single-stage framework with fixed classification heads achieves arbitrary-class inference capability through the introduction of background placeholders.
-	(3) We propose highly effective object-object discrimination and object-background discrimination strategies." 
-	    type="info" style="margin-top: 10px;" />
+	    <el-alert title="🔥 Our Key Contributions" type="success" />
+	    <el-alert title="1️⃣ While CD-ViTO demonstrates significant performance degradation in open-set detection on the CD-FSOD benchmark, our network exhibits notable domain robustness." type="success" />
+	    <el-alert title="2️⃣ Our single-stage framework with fixed classification heads achieves arbitrary-class inference capability through the introduction of background placeholders." type="success" />
+	    <el-alert title="3️⃣ We propose highly effective object-object distinguishing and object-background distinguishing strategies." type="success" />
 	  </el-col>
 	</el-row>
 
