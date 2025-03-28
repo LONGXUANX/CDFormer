@@ -46,10 +46,10 @@ const news = "🔥 ICME 2025."
 
 // 强调内容
 const emphases = [
-  "🎉 [2025-3-21] Our paper has been accepted to ICME 2025 ",
+  "🎉 [2025-3-21] Our paper has been accepted by ICME 2025 ",
   "🥰 Our code is coming soon",
-  "❤️ +12.9%/11.0%/10.4% mAP in 1/5/10-shot settings with fine-tuning (vs CD-ViTO)",
-  "💕 +20.6%/19.0%/18.3% mAP in 1/5/10-shot settings for open-set detection (vs DE-ViT)"
+  "❤️ +12.9%/11.0%/10.4% mAP in 1/5/10-shot settings with fine-tuning (vs CD-ViTO ECCV2024)",
+  "💕 +20.6%/19.0%/18.3% mAP in 1/5/10-shot settings for open-set detection (vs DE-ViT CoRL2024)"
 ]
 
 // 提供引导资料链接
@@ -93,12 +93,17 @@ const buttons = [
 <template>
   <div>
 
-    <!-- 最新消息提示 -->
-    <el-row justify="center">
-      <el-col :span="24">
-        <el-alert title="🔥 [2025-3-21] Our paper has been accepted in ICME 2025." type="success" />
-      </el-col>
-    </el-row>
+    <!-- Latest News Notification -->
+	<el-row justify="center">
+	  <el-col :span="24">
+	    <el-alert title="🔥 [2025-3-21] Our paper has been accepted to ICME 2025." type="success" />
+	    <el-alert title="Our Key Contributions:
+	(1) While CD-ViTO demonstrates significant performance degradation in open-set detection on the CD-FSOD benchmark, our network exhibits notable domain robustness.
+	(2) Our single-stage framework with fixed classification heads achieves arbitrary-class inference capability through the introduction of background placeholders.
+	(3) We propose highly effective object-object discrimination and object-background discrimination strategies." 
+	    type="info" style="margin-top: 10px;" />
+	  </el-col>
+	</el-row>
 
     <!-- 文章logo -->
     <el-row v-if="logo" justify="center">
