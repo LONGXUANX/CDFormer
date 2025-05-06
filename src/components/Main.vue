@@ -36,5 +36,4 @@ export default {
   <Abstract/>
   <Latex/>
   <SeletionForComparison/>
-  <Comment/>
 </template>
