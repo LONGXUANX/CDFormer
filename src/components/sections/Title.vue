@@ -47,7 +47,7 @@ const news = "🔥 ICME 2025."
 // 强调内容
 const emphases = [
   "🎉 [2025-3-21] Our paper has been accepted by ICME 2025 ",
-  "🥰 Our code is available",
+  "🥰 Our code is available now",
   "❤️ +12.9%/11.0%/10.4% mAP in 1/5/10-shot settings with fine-tuning (vs CD-ViTO ECCV2024)",
   "💕 +20.6%/19.0%/18.3% mAP in 1/5/10-shot settings for open-set detection (vs DE-ViT CoRL2024)"
 ]
