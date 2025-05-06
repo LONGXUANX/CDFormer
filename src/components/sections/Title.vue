@@ -57,6 +57,7 @@ const buttons = [
   {
     disabled: false,
     name: "Paper",
+    link: "https://arxiv.org/pdf/2505.00938v1",
     component: Document,
   },
   {
@@ -67,7 +68,7 @@ const buttons = [
   {
     disabled: false,
     name: "Code",
-    // link: "https://github.com/JunyaoHu/academic-project-page-template-vue",
+    link: "https://github.com/LONGXUANX/CDFormer_code",
     component: Files,
   },
   {
