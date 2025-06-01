@@ -42,11 +42,12 @@ const addresses = [
 ]
 
 // 最新消息
-const news = "🔥 ICME 2025."
+const news = "🔥 ICME 2025 Oral Presentation."
 
 // 强调内容
 const emphases = [
   "🎉 [2025-3-21] Our paper has been accepted by ICME 2025 ",
+  "🔥 [2025-5-31] Our paper will also be presented as orals ",
   "🥰 Our code is available now",
   "❤️ +12.9%/11.0%/10.4% mAP in 1/5/10-shot settings with fine-tuning (vs CD-ViTO ECCV2024)",
   "💕 +20.6%/19.0%/18.3% mAP in 1/5/10-shot settings for open-set detection (vs DE-ViT CoRL2024)"
